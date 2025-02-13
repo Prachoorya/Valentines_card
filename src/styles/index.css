@@ -1,0 +1,75 @@
+:root {
+    --color-lightest: #FFF0F5;
+    --color-light: #FFB6C1;
+    --color-default: #FF69B4;
+    --color-dark: #FF1493;
+    --color-deepest: #8B008B;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, var(--color-lightest), white);
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes confetti {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.envelope {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.envelope:hover {
+    transform: scale(1.05) rotateY(10deg);
+}
+
+.envelope-flap {
+    transition: transform 0.3s ease;
+}
+
+.envelope:hover .envelope-flap {
+    transform: rotateX(-20deg);
+}
+
+.yes-button {
+    animation: pop 0.5s ease forwards;
+}
+
+.success-message {
+    animation: slideIn 0.5s ease forwards;
+}

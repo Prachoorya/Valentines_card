@@ -1,0 +1,276 @@
+.container {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FFE5F0 0%, #FFF 100%);
+    padding: 1rem;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 320px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+    box-shadow: 
+      0 10px 30px rgba(255, 105, 180, 0.15),
+      0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .envelope {
+    width: 100%;
+    aspect-ratio: 4/3;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    margin: 0 auto;
+  }
+  
+  .envelopeWrapper {
+    perspective: 1000px;
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .envelopeFront {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #FF8DC7, #FF69B4);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+      0 8px 16px rgba(255, 105, 180, 0.2),
+      inset 0 -8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .envelopeFlap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom, #FF69B4, #FF1493);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top;
+    transition: transform 0.4s ease;
+    border-radius: 16px 16px 0 0;
+  }
+  
+  .envelope:hover {
+    transform: scale(1.02) rotateY(10deg);
+  }
+  
+  .envelope:hover .envelopeFlap {
+    transform: rotateX(-20deg);
+  }
+  
+  .forYouText {
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #FF1493, #8B008B);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.1);
+    letter-spacing: -0.02em;
+  }
+  
+  .questionContainer {
+    text-align: center;
+    animation: fadeIn 0.6s ease;
+  }
+  
+  .questionTitle {
+    font-size: 1.75rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FF1493, #8B008B);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 240px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .noButton, .yesButton {
+    padding: 0.875rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    border: none;
+    font-size: 1.125rem;
+    font-weight: 600;
+    width: 100%;
+  }
+  
+  .noButton {
+    background-color: white;
+    color: #FF1493;
+    border: 2px solid #FF69B4;
+  }
+  
+  .noButton:hover {
+    background-color: #FFF0F5;
+    transform: scale(0.98);
+  }
+  
+  .yesButton {
+    background: linear-gradient(135deg, #FF69B4, #FF1493);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
+  }
+  
+  .yesButton:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(255, 20, 147, 0.4);
+  }
+  
+  .popupYesButton {
+    position: absolute;
+    border: none;
+    background: linear-gradient(135deg, #FF69B4, #FF1493);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(255, 20, 147, 0.3);
+    cursor: pointer;
+    animation: pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    font-weight: 600;
+  }
+  
+  .successMessage {
+    text-align: center;
+    animation: slideUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .successTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FF1493, #8B008B);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+  
+  .successImage {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 
+      0 20px 40px rgba(255, 105, 180, 0.2),
+      0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+  }
+  
+  .iconContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .icon {
+    animation: heartBeat 1.5s ease-in-out infinite;
+  }
+  
+  .confetti {
+    position: fixed;
+    animation: confetti 3s linear infinite;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes heartBeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.1);
+    }
+    40% {
+      transform: scale(1);
+    }
+    60% {
+      transform: scale(1.1);
+    }
+  }
+  
+  @keyframes confetti {
+    0% {
+      transform: translateY(-10vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes pop {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+    }
+    70% {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .card {
+      max-width: 400px;
+      padding: 2.5rem;
+    }
+  
+    .buttonContainer {
+      flex-direction: row;
+      max-width: 300px;
+    }
+  
+    .noButton, .yesButton {
+      padding: 1rem 2rem;
+    }
+  }

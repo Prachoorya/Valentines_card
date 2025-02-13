@@ -1,0 +1,9 @@
+{
+    "colors": {
+        "lightest": "#FFF0F5",
+        "light": "#FFB6C1",
+        "default": "#FF69B4",
+        "dark": "#FF1493",
+        "deepest": "#8B008B"
+    }
+}
